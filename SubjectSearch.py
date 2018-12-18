@@ -18,14 +18,18 @@
 
 import networkx as nx
 
-def CreateGraph(AuthorIDs, AuthorSubject, Plot_Graph = False):
-    
+def TotalSubjects(AuthorSubject):
     Total_Subjects = []
     for person in AuthorSubject:
         for subject in person:
             if subject not in Total_Subjects:
                 Total_Subjects.append(subject)
-    print(Total_Subjects)           
+    return Total_Subjects
+
+def CreateGraph(AuthorIDs, AuthorSubject, Total_Subjects, Plot_Graph = False):
+    
+
+    #print(Total_Subjects)           
     Max_Authors = len(AuthorIDs)
     Size_Subject = len(Total_Subjects) 
     Colour_Map = []*(Size_Subject + Max_Authors)
